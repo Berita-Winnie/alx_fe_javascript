@@ -1,4 +1,4 @@
-// Manage an array of quote elements
+/ Manage an array of quote elements
 const quoteArray = [
     { text: "You are exactly where you need to be.", category: "Encouragement" },
     { text: "You are loved and supported.", category: "Encouragement" },
@@ -17,7 +17,7 @@ function showRandomQuote() {
     let randomElement = quoteArray[randomIndex];
 
     // Update the DOM
-    quoteDisplay.textContent = randomElement.text;
+    quoteDisplay.innerHTML = randomElement.text;
 }
 
 // Function to create the Add Quote Form dynamically
@@ -40,7 +40,7 @@ function createAddQuoteForm() {
     // Create Add Quote button
     const addQuoteButton = document.createElement("button");
     addQuoteButton.textContent = "Add Quote";
-    addQuoteButton.id = "addQuoteButton"; // Assign an ID for event listener
+    addQuoteButton.onclick = addQuote;
 
     // Append elements to the form container
     formContainer.appendChild(newQuoteText);
@@ -74,22 +74,16 @@ function addQuote() {
 // Run functions when the page loads
 window.onload = function () {
     createAddQuoteForm(); // Create the Add Quote Form
+    showRandomQuote(); // Display a random quote initially
 
-    // Create "Show New Quote" button
+    // Create Show New Quote button
     const showQuoteButton = document.createElement("button");
     showQuoteButton.textContent = "Show New Quote";
-    showQuoteButton.id = "showQuoteButton"; // Assign an ID for event listener
+    showQuoteButton.onclick = showRandomQuote;
     document.body.appendChild(showQuoteButton);
 
     // Create a placeholder for displaying quotes
     const quoteDisplay = document.createElement("p");
     quoteDisplay.id = "quoteDisplay";
     document.body.appendChild(quoteDisplay);
-
-    // Display an initial quote
-    showRandomQuote();
-
-    // Add event listeners
-    document.getElementById("showQuoteButton").addEventListener("click", showRandomQuote);
-    document.getElementById("addQuoteButton").addEventListener("click", addQuote);
 };
