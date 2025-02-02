@@ -9,6 +9,7 @@ let quotes = [
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const quote = quotes[randomIndex];
     const quoteDisplay = document.getElementById('quoteDisplay');
+    // Using innerText instead of innerHTML
     quoteDisplay.innerText = `${quote.text} - ${quote.category}`;
   }
   
@@ -28,4 +29,5 @@ let quotes = [
     } else {
       alert('Please fill in both fields.');
     }
-}
+  }
+  Checklist:
