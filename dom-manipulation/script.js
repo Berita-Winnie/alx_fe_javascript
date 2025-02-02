@@ -7,16 +7,13 @@ const quoteArray = [
     ];
     
     
-    
-    
-    //Implement a function to display a random quote ..
+ //Select DOM Elements
     const quoteDisplay = document.getElementById("quoteDisplay");
-    
-    
-    const newQuote = document.getElementById("newQuote");
-    newQuote.addEventListener('click',
-        function displayRandomQuote() {
-    
+    const newQuoteButton = document.getElementById("newQuote");
+    const addQuoteButton = document.getElementById("addQuoteBtn");
+
+//function to display a random quote
+function showRandomQuote(){
     
         //Pick a random index
         let randomIndex = Math.floor(Math.random() * quoteArray.length);
@@ -24,14 +21,14 @@ const quoteArray = [
         //get a random element from array
         let randomElement =quoteArray[randomIndex];
     
+        //update the DOM
+        quoteDisplay.innerHTML= randomElement.text;
+    }
     
-        quoteDisplay.textContent = randomElement.text;
-    })
+//add event listener for the "Show New Quote" button
+newQuoteButton.addEventListener('click', showRandomQuote);
     
-    
-    //Add Quote Function for user;
-    
-    
+ //Function to add a new quote   
     function addQuote () {
     
     
